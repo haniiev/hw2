@@ -1,78 +1,67 @@
-package com.company;
 
-import java.util.Scanner;
+  package com.company;
 
-public class Person {
-    private String firstName;
-    private  String lastName;
-    private int birthYear;
-    public static int count = 0;
+public class Employee {
+private String name;
+private static int rate;
+private static int hours;
+public static int count = 0;
 
-    public Person(){
+
+    public  Employee (){
         count++;
     }
 
-    public Person(String firstName, String lastName){
-        this.firstName = firstName;
-        this.lastName = lastName;
+     public  Employee(String name, int rate) {
+        this.name = name;
+        this.rate = rate;
         count++;
+     }
+
+     public Employee(String name, int rate, int hours) {
+     this.name = name;
+     this.rate = rate;
+     this.hours = hours;
+     count++;
+     }
+
+    public static int getSalary() {
+        return rate * hours;
     }
 
-    public Person(String firstName, String lastName, int birthYear){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthYear = birthYear;
-        count++;
+    public  static  int getBonuses() {
+        return  getSalary() / 10;
     }
 
-    static Person input() {
-        Scanner scan = new Scanner(System.in);
-        Person p = new Person();
-        System.out.print("First name: ");
-        p.setFirstName(scan.next());
-        System.out.print("Last name: ");
-        p.setLastName(scan.next());
-        System.out.print("Birth year: ");
-        p.setBirthYear(scan.nextInt());
-        return p;
+    public String getName() {
+        return name;
     }
 
-    void changeName(String fn, String ln){
-        firstName = fn;
-        lastName = ln;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String output() {     // toString  !!!
-        return "Person{FirstName: " + firstName + ", LastName: " + lastName + ", BirthYear: " + birthYear +
-                ", Age: " + getAge();
+    public int getRate() {
+        return rate;
     }
 
-    public int getAge(){
-        return 2020 - birthYear;
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
-    public void setBirthYear(int birthYear) {
-        this.birthYear = birthYear;
+    public static int getHours() {
+        return hours;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public static void setHours(int hours) {
+        Employee.hours = hours;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public int getBirthYear() {
-        return birthYear;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
 }
