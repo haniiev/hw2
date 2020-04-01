@@ -3,9 +3,9 @@
 
 public class Employee {
 private String name;
-private static int rate;
-private static int hours;
-public static int count = 0;
+private int rate;
+private int hours;
+public int count = 0;
 
 
     public  Employee (){
